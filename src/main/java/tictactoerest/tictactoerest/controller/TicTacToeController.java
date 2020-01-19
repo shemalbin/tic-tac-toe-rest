@@ -12,7 +12,7 @@ import service.ITicTaeToeService;
  * @author Albin Shema
  * @FileName: TicTacToeController.java
  * @Date: Jan 19, 2020
- * @ProjectName: tic-tac-toe-core
+ * @ProjectName: tic-tac-toe-rest
  */
 public class TicTacToeController {
 	
