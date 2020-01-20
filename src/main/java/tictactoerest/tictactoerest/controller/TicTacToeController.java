@@ -3,6 +3,8 @@ package tictactoerest.tictactoerest.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import domain.EBoardMark;
 import domain.TicTacToe;
@@ -14,6 +16,8 @@ import service.ITicTaeToeService;
  * @Date: Jan 19, 2020
  * @ProjectName: tic-tac-toe-rest
  */
+@RestController
+@RequestMapping("/tictactoe")
 public class TicTacToeController {
 	
 	@Autowired
