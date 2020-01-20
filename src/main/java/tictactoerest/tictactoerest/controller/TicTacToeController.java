@@ -38,6 +38,14 @@ public class TicTacToeController {
 		return result;
     }
 	
+	@GetMapping(value = "/board/{board}")
+    public EBoardMark checkWinner(@PathVariable(value = "board") String[] board) {
+		EBoardMark [][] boardMark = populateBoard(board);
+		//Boolean checkWinner = ;
+		//System.out.println("=========="+checkWinner);
+		return ticTacToeService.checkTheWinner(boardMark);
+    }
+	
 	private EBoardMark [][] populateBoard(String[] board){
 		EBoardMark [] boardMarkValues = new EBoardMark [9];
 		EBoardMark [][] boardMark = new EBoardMark [3][3];
