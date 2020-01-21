@@ -23,13 +23,6 @@ public class TicTacToeController {
 	@Autowired
 	private ITicTaeToeService ticTacToeService;
 	
-	@GetMapping(value="/")
-	public TicTacToe initializeGame() {
-		TicTacToe ticTacToe = new TicTacToe();
-		TicTacToe ticTacToeResult = ticTacToeService.initializeTheBoard(ticTacToe);
-		return ticTacToeResult;
-	}
-	
 	@GetMapping(value = "/board/{board}/row/{row}/col/{col}")
     public int[] getTicketsNumberByStatusPriorityAndIssuer(@PathVariable(value = "board") String[] board,
     		@PathVariable(value = "row") int row, @PathVariable(value = "col") int col) {
@@ -41,8 +34,6 @@ public class TicTacToeController {
 	@GetMapping(value = "/board/{board}")
     public EBoardMark checkWinner(@PathVariable(value = "board") String[] board) {
 		EBoardMark [][] boardMark = populateBoard(board);
-		//Boolean checkWinner = ;
-		//System.out.println("=========="+checkWinner);
 		return ticTacToeService.checkTheWinner(boardMark);
     }
 	
