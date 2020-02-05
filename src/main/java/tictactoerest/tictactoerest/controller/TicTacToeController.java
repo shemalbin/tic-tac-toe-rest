@@ -23,11 +23,18 @@ public class TicTacToeController {
 	@Autowired
 	private ITicTaeToeService ticTacToeService;
 	
-	@GetMapping(value = "/board/{board}/row/{row}/col/{col}")
+	@GetMapping(value = "/board/{board}/row/{row}/col/{col}/mark/{mark}")
     public int[] getTicketsNumberByStatusPriorityAndIssuer(@PathVariable(value = "board") String[] board,
-    		@PathVariable(value = "row") int row, @PathVariable(value = "col") int col) {
+    		@PathVariable(value = "row") int row, @PathVariable(value = "col") int col,
+    		@PathVariable(value = "mark") String mark) {
 		EBoardMark [][] boardMark = populateBoard(board);
-		int [] result = ticTacToeService.getBestMove(boardMark);
+		EBoardMark playerMark;
+		if(mark.equals("o")) {
+			playerMark = EBoardMark.CIRCLE;
+		}  else {
+			playerMark = EBoardMark.CROSS;
+		}
+		int [] result = ticTacToeService.getBestMove(boardMark, playerMark);
 		return result;
     }
 	
